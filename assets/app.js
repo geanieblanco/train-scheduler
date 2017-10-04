@@ -10,6 +10,8 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
+  var trainData = firebase.database();
+
 	// 2. Button for adding Trains
 	$("#addTrainBtn").on("click", function(){
 
@@ -51,7 +53,7 @@ $(document).ready(function(){
 		return false;
 	});
 
-	trainData.on("child_added", function(childSnapshot, prevChildKey){
+	trainData.ref().on("child_added", function(childSnapshot, prevChildKey){
 
 		console.log(childSnapshot.val());
 
